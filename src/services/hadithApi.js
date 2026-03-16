@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '$2y$10$b4sdQMLnNGydvG8FyRPQLjA4P5ikBuq4kKmU8iA0Lz70uAH06Zq';
+const API_KEY = process.env.REACT_APP_HADITH_KEY || '$2y$10$b4sdQMLnNGydvG8FyRPQLjA4P5ikBuq4kKmU8iA0Lz70uAH06Zq';
 const BASE    = 'https://hadithapi.com/api';
 
 export const HADITH_BOOKS = [
@@ -12,7 +12,6 @@ export const HADITH_BOOKS = [
   { id: 'sunan-nasai',   name: "An-Nasa'i",       arabic: 'سنن النسائي',  count: '5761', color: '#8E44AD', imam: "Imam Nasa'i"  },
 ];
 
-// ✅ Correct param: apiKey (capital K)
 export const getHadiths = async (bookSlug, page = 1) => {
   const res = await axios.get(`${BASE}/hadiths`, {
     params: { apiKey: API_KEY, book: bookSlug, paginate: 20, page }
