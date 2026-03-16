@@ -49,7 +49,8 @@ export default function Hadith() {
       setTotal(res.hadiths?.total || data.length);
       setPage(pg);
     } catch (e) {
-      setError('Failed to load. Please add your API key in hadithApi.js');
+      console.error('Hadith load error:', e);
+      setError(`Failed to load hadith. Error: ${e.message || 'Network error'}. Check internet connection.`);
     } finally {
       setLoading(false); setLoadingMore(false);
     }
@@ -205,7 +206,7 @@ export default function Hadith() {
               {error && (
                 <div style={{ background: 'rgba(231,76,60,0.1)', border: '1px solid rgba(231,76,60,0.3)', borderRadius: 10, padding: '12px 16px', marginBottom: 14, color: '#e74c3c', fontSize: 12 }}>
                   ⚠️ {error}
-                  <br/><span style={{ color: '#7a9585', fontSize: 11 }}>Go to hadithApi.js and replace YOUR_KEY_HERE with your key from hadithapi.com</span>
+                  <br/><span style={{ color: '#7a9585', fontSize: 11 }}>Check your internet connection and try again.</span>
                 </div>
               )}
 

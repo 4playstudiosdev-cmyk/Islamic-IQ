@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
+// HadithAPI key - get yours free at hadithapi.com
 const API_KEY = process.env.REACT_APP_HADITH_KEY || '$2y$10$b4sdQMLnNGydvG8FyRPQLjA4P5ikBuq4kKmU8iA0Lz70uAH06Zq';
 const BASE    = 'https://hadithapi.com/api';
 
@@ -12,30 +14,26 @@ export const HADITH_BOOKS = [
   { id: 'sunan-nasai',   name: "An-Nasa'i",       arabic: 'سنن النسائي',  count: '5761', color: '#8E44AD', imam: "Imam Nasa'i"  },
 ];
 
-export const getHadiths = async (bookSlug, page = 1) => {
-  const res = await axios.get(`${BASE}/hadiths`, {
-    params: { apiKey: API_KEY, book: bookSlug, paginate: 20, page }
-  });
-  return res.data;
+const call = async (url, params) => {
+  try {
+    const res = await axios.get(url, { params, timeout: 15000 });
+    return res.data;
+  } catch (e) {
+    // Try with fetch as fallback
+    const query = new URLSearchParams(params).toString();
+    const r = await fetch(`${url}?${query}`);
+    return await r.json();
+  }
 };
 
-export const getChapters = async (bookSlug) => {
-  const res = await axios.get(`${BASE}/${bookSlug}/chapters`, {
-    params: { apiKey: API_KEY, paginate: 200 }
-  });
-  return res.data;
-};
+export const getHadiths = (bookSlug, page = 1) =>
+  call(`${BASE}/hadiths`, { apiKey: API_KEY, book: bookSlug, paginate: 20, page });
 
-export const getChapterHadiths = async (bookSlug, chapterNum, page = 1) => {
-  const res = await axios.get(`${BASE}/hadiths`, {
-    params: { apiKey: API_KEY, book: bookSlug, chapter: chapterNum, paginate: 20, page }
-  });
-  return res.data;
-};
+export const getChapters = (bookSlug) =>
+  call(`${BASE}/${bookSlug}/chapters`, { apiKey: API_KEY, paginate: 200 });
 
-export const searchHadiths = async (bookSlug, query, page = 1) => {
-  const res = await axios.get(`${BASE}/hadiths`, {
-    params: { apiKey: API_KEY, book: bookSlug, hadithEnglish: query, paginate: 20, page }
-  });
-  return res.data;
-};
+export const getChapterHadiths = (bookSlug, chapterNum, page = 1) =>
+  call(`${BASE}/hadiths`, { apiKey: API_KEY, book: bookSlug, chapter: chapterNum, paginate: 20, page });
+
+export const searchHadiths = (bookSlug, query, page = 1) =>
+  call(`${BASE}/hadiths`, { apiKey: API_KEY, book: bookSlug, hadithEnglish: query, paginate: 20, page });
