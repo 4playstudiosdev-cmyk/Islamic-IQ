@@ -42,7 +42,7 @@ export default function PrayerTimes() {
   const [method, setMethod]         = useState(1);
   const [showSettings, setShowSettings] = useState(false);
   const [cityInput, setCityInput]   = useState('');
-  const [manualCity, setManualCity] = useState(null);
+  const [_manualCity, setManualCity] = useState(null);
   const [notifications, setNotifications] = useState({});
   const tickRef = useRef(null);
 

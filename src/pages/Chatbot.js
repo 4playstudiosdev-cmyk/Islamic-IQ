@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Bot, User, Loader, Trash2, Copy, ThumbsUp, Volume2, RefreshCw } from 'lucide-react';
+import { Send, User, Loader, Trash2, Copy, ThumbsUp, Volume2 } from 'lucide-react';
 import { sendMessage, SUGGESTED_QUESTIONS } from '../services/chatApi';
 
 const GREET = `Assalamu Alaikum wa Rahmatullahi wa Barakatuh! 🌙

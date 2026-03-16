@@ -31,9 +31,7 @@ const PrayerFigure = ({ pose, color = '#1B6B3A', animated = true }) => {
   const skin    = '#C4956A';
   const robe    = color;
   const robeDark= `${color}cc`;
-  const white   = '#f0f0f0';
-
-  const anim = (name, dur = '2s', delay = '0s', fill = 'none') =>
+    const anim = (name, dur = '2s', delay = '0s', fill = 'none') =>
     animated ? `${name} ${dur} ${delay} ease-in-out infinite ${fill}` : 'none';
 
   const figures = {

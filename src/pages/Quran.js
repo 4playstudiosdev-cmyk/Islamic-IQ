@@ -1,7 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps, no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Play, Pause, BookOpen, Volume2, Loader, SkipBack, SkipForward, Languages } from 'lucide-react';
-import { getAllSurahs, getSurahArabic, getSurahEnglish, getSurahUrdu, getAyatAudioUrl } from '../services/quranApi';
+import { getSurahArabic, getSurahEnglish, getSurahUrdu, getAyatAudioUrl } from '../services/quranApi';
 
 // ── EXACT Juz start/end positions ─────────────────────────────
 // startSurah/startAyat = exact ayat where THIS parah begins
@@ -184,7 +184,7 @@ export default function Quran() {
           // Final fallback — use CDN mirror
           try {
             const res2 = await fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara.json');
-            const json2 = await res2.json();
+            const json2 = await res2.json(); // eslint-disable-line no-unused-vars
             // Build minimal surah list from this API
             const fallbackSurahs = Array.from({length: 114}, (_, i) => ({
               number: i + 1,

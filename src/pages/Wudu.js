@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Volume2, Pause, RotateCcw, Play, Droplets } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Volume2, Pause, RotateCcw, Play } from 'lucide-react';
 
 const CSS_ANIMATIONS = `
   @keyframes waterFlow   { 0%{transform:translateY(-8px);opacity:0} 100%{transform:translateY(12px);opacity:0.8} }
