@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
-import axios from 'axios';
 
-// HadithAPI key - get yours free at hadithapi.com
-const API_KEY = process.env.REACT_APP_HADITH_KEY || '$2y$10$b4sdQMLnNGydvG8FyRPQLjA4P5ikBuq4kKmU8iA0Lz70uAH06Zq';
-const BASE    = 'https://hadithapi.com/api';
+// ✅ Uses Vercel proxy to avoid CORS issues
+const PROXY = '/api/hadith';
 
 export const HADITH_BOOKS = [
   { id: 'sahih-bukhari', name: 'Sahih Bukhari',  arabic: 'صحيح البخاري', count: '7563', color: '#1B6B3A', imam: 'Imam Bukhari'  },
@@ -14,26 +12,21 @@ export const HADITH_BOOKS = [
   { id: 'sunan-nasai',   name: "An-Nasa'i",       arabic: 'سنن النسائي',  count: '5761', color: '#8E44AD', imam: "Imam Nasa'i"  },
 ];
 
-const call = async (url, params) => {
-  try {
-    const res = await axios.get(url, { params, timeout: 15000 });
-    return res.data;
-  } catch (e) {
-    // Try with fetch as fallback
-    const query = new URLSearchParams(params).toString();
-    const r = await fetch(`${url}?${query}`);
-    return await r.json();
-  }
+const call = async (endpoint, params = {}) => {
+  const query = new URLSearchParams({ endpoint, ...params }).toString();
+  const res = await fetch(`${PROXY}?${query}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
 };
 
 export const getHadiths = (bookSlug, page = 1) =>
-  call(`${BASE}/hadiths`, { apiKey: API_KEY, book: bookSlug, paginate: 20, page });
+  call('hadiths', { book: bookSlug, paginate: 20, page });
 
 export const getChapters = (bookSlug) =>
-  call(`${BASE}/${bookSlug}/chapters`, { apiKey: API_KEY, paginate: 200 });
+  call(`${bookSlug}/chapters`, { paginate: 200 });
 
 export const getChapterHadiths = (bookSlug, chapterNum, page = 1) =>
-  call(`${BASE}/hadiths`, { apiKey: API_KEY, book: bookSlug, chapter: chapterNum, paginate: 20, page });
+  call('hadiths', { book: bookSlug, chapter: chapterNum, paginate: 20, page });
 
 export const searchHadiths = (bookSlug, query, page = 1) =>
-  call(`${BASE}/hadiths`, { apiKey: API_KEY, book: bookSlug, hadithEnglish: query, paginate: 20, page });
+  call('hadiths', { book: bookSlug, hadithEnglish: query, paginate: 20, page });

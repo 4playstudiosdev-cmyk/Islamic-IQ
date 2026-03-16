@@ -4,7 +4,7 @@ import './index.css';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Quran from './pages/Quran';
-import Hadith from './pages/Hadith';
+import Hadith from '../api/Hadith';
 import Namaz from './pages/Namaz';
 import Kids from './pages/Kids';
 import MCQ from './pages/MCQ';

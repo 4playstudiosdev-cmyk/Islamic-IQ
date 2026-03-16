@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, BookMarked, ChevronRight, Loader, X, List } from 'lucide-react';
-import { HADITH_BOOKS, getHadiths, getChapters, getChapterHadiths, searchHadiths } from '../services/hadithApi';
+import { HADITH_BOOKS, getHadiths, getChapters, getChapterHadiths, searchHadiths } from '../src/services/hadithApi';
 
 export default function Hadith() {
   const [selectedBook, setSelectedBook]     = useState(null);
