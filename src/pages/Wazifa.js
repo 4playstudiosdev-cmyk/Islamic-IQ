@@ -1,0 +1,1 @@
+export { Wazifa as default } from './OtherPages';

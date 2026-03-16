@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IslamIQ</string>
+    <string name="title_activity_main">IslamIQ</string>
+    <string name="package_name">com.islamiq.app</string>
+    <string name="custom_url_scheme">com.islamiq.app</string>
+</resources>
