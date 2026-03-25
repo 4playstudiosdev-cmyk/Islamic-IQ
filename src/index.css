@@ -1,0 +1,62 @@
+/* ── IslamIQ Global Styles — Black + Gold Theme ────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg:        #030303;
+  --dark:      #0A0A08;
+  --dark2:     #0F0F0D;
+  --dark-card: #0F0F0D;
+  --gold:      #C9A84C;
+  --gold2:     #E8C97A;
+  --gold3:     #F5DFA0;
+  --border:    rgba(201,168,76,0.12);
+  --text:      #F2EDE4;
+  --muted:     rgba(242,237,228,0.4);
+  --green:     #2E8B57;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #030303 !important;
+  color: #F2EDE4;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  background: #030303;
+  min-height: 100vh;
+}
+
+/* Arabic font */
+.arabic {
+  font-family: 'Scheherazade New', serif !important;
+  direction: rtl;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #0A0A08; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(201,168,76,0.45); }
+
+/* Selection */
+::selection { background: rgba(201,168,76,0.25); color: #F2EDE4; }
+
+/* Remove input zoom on iOS */
+input, select, textarea { font-size: 16px !important; }
+
+/* Animations */
+@keyframes fadeInUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shimmer    { to{background-position:200% center} }
+@keyframes spin       { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes pulse      { 0%,100%{opacity:0.5} 50%{opacity:1} }
+@keyframes float      { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+.animate-fadeInUp { animation: fadeInUp 0.5s ease both; }
+
+/* Geo background (remove green) */
+.geo-bg { display: none; }
