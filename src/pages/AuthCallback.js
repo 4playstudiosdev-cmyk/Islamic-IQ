@@ -5,12 +5,14 @@ import { supabase } from '../supabase';
 export default function AuthCallback() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) navigate('/setup-profile');
-      else navigate('/login');
-    });
-  }, [navigate]);
+  // src/pages/AuthCallback.js mein check karein
+useEffect(() => {
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (session) {
+      window.location.href = '/home' // Ya jo bhi aapka main page hai
+    }
+  });
+}, []);
 
   return (
     <div style={{ background:'#050505', minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center' }}>
