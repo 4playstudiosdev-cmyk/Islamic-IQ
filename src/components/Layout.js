@@ -10,7 +10,9 @@ import {
 // Coins icon fallback
 import { useAuth } from '../context/AuthContext';
 
-const TasbeehIcon = (p) => <span style={{fontSize:p.size||20}}>📿</span>;
+const BookOpenIcon = (p) => <span style={{fontSize:p.size||20}}>📖</span>;
+const TafseerIcon  = (p) => <span style={{fontSize:p.size||20}}>📚</span>;
+const TasbeehIcon  = (p) => <span style={{fontSize:p.size||20}}>📿</span>;
 const HandsIcon   = (p) => <span style={{fontSize:p.size||20}}>🤲</span>;
 const MosqueIcon  = (p) => <span style={{fontSize:p.size||20}}>🕌</span>;
 const MoonIcon2   = (p) => <span style={{fontSize:p.size||20}}>🌙</span>;
@@ -42,6 +44,8 @@ const navItems = [
   { path:'/habits',      icon:Flame,         label:'Habits',      color:G  },
   { path:'/events',      icon:Bell,          label:'Events',      color:G2 },
   { path:'/arabic-word', icon:BookMarked,    label:'Arabic Word', color:G  },
+  { path:'/quran-reader',icon:BookOpenIcon,  label:'Quran Read',  color:G2 },
+  { path:'/tafseer',     icon:TafseerIcon,   label:'Tafseer',     color:G  },
   { path:'/tasbeeh',     icon:TasbeehIcon,   label:'Tasbeeh',     color:G2 },
   { path:'/duas',        icon:HandsIcon,     label:'Duas',        color:G  },
   { path:'/jummah',      icon:MosqueIcon,    label:'Jummah',      color:G2 },

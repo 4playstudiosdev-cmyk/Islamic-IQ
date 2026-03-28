@@ -29,6 +29,8 @@ import HabitTracker   from './pages/HabitTracker';
 import IslamicEvents  from './pages/IslamicEvents';
 import ArabicWord     from './pages/ArabicWord';
 import Tasbeeh       from './pages/Tasbeeh';
+import QuranReader   from './pages/QuranReader';
+import Tafseer       from './pages/Tafseer';
 import DuaCollection from './pages/DuaCollection';
 import Jummah        from './pages/Jummah';
 import Ramadan       from './pages/Ramadan';
@@ -92,6 +94,10 @@ function AppRoutes() {
       <Route path="/habits"      element={<Layout><HabitTracker /></Layout>} />
       <Route path="/events"      element={<Layout><IslamicEvents /></Layout>} />
       <Route path="/arabic-word" element={<Layout><ArabicWord /></Layout>} />
+
+      {/* Quran extras */}
+      <Route path='/quran-reader' element={<Layout><QuranReader /></Layout>} />
+      <Route path='/tafseer'      element={<Layout><Tafseer /></Layout>} />
 
       {/* 5 New Pages */}
       <Route path="/tasbeeh"   element={<Layout><Tasbeeh /></Layout>} />

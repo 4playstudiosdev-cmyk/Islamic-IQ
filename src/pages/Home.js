@@ -41,6 +41,8 @@ const QUICK = [
   { path:'/habits',      icon:FlameIcon,     label:'Habits',       sub:'Daily tracker', color:'#E8C97A', bg:'rgba(232,201,122,0.1)' },
   { path:'/events',      icon:BellIcon,      label:'Events',       sub:'Islamic events',color:'#C9A84C', bg:'rgba(201,168,76,0.1)'  },
   { path:'/arabic-word', icon:BookOpen,      label:'Arabic Word',  sub:'Learn daily',   color:'#E8C97A', bg:'rgba(232,201,122,0.1)' },
+  { path:'/quran-reader',icon:BookOpen,       label:'Quran Reader', sub:'604 pages',      color:'#C9A84C', bg:'rgba(201,168,76,0.1)'  },
+  { path:'/tafseer',     icon:BookOpen,       label:'Tafseer',      sub:'Ayat explained', color:'#E8C97A', bg:'rgba(232,201,122,0.1)' },
   { path:'/tasbeeh',     icon:TasbeehI,      label:'Tasbeeh',      sub:'Digital counter',color:'#C9A84C', bg:'rgba(201,168,76,0.1)'  },
   { path:'/duas',        icon:DuaI,          label:'Dua Collection',sub:'25+ duas',     color:'#E8C97A', bg:'rgba(232,201,122,0.1)' },
   { path:'/jummah',      icon:JummahI,       label:"Jumu'ah",      sub:'Friday guide',  color:'#C9A84C', bg:'rgba(201,168,76,0.1)'  },
